@@ -1,7 +1,11 @@
 # This file contains all the interactions with Grafana
+#provider "grafana" {
+#  url  = google_cloud_run_service.grafana_service.status[0].url
+#  auth = "admin:${var.grafana_admin_password}"
+#}
 provider "grafana" {
-  url  = google_cloud_run_service.grafana_service.status[0].url
-  auth = "admin:${var.grafana_admin_password}"
+  url  = "http://grafana.example.com/"
+  auth = var.grafana_auth
 }
 
 # Create a new organization in Grafana
